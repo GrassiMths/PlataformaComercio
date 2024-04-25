@@ -15,31 +15,47 @@ body {
 }
 
 
-body{
+body {
   display: flex;
-  justify-content: center;
-  align-items:center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6rem;
   min-height: 100vh;
-  background: url(/yellowbackground.jpg) no-repeat;
+  background: #e4e2e2;
   background-size: cover;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 
 .container {
+  margin-top: 5%;
   background-color: #fff;
   border-radius: 45px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
-  width: 75vh;
-  min-width: 100%;
-  min-height: 40vh;
+  height: 50vh;
+  width: 30vw;
 }
+
+@media (min-width: 280px) and (max-width: 700px) {
+  .container{
+    height: 65vh;
+    width: 80vw;
+
+  }
+}
+
+
+@media (min-width: 701px) and (max-width: 1620px) {
+  .container{
+    height: 60vh;
+    width: 80vw;
+  }
+}
+
+
+
 
 
 .container p {
@@ -51,6 +67,8 @@ a {
 
 
 
+
+
 .container span {
   font-size: 12px;
 }
@@ -59,13 +77,16 @@ a {
 .container a {
   color: #333;
   font-size: 13px;
+  color: inherit;
   text-decoration: none;
   margin: 15px 0 10px;
 }
 
 
+
+
 .container button {
-  background-color: #a88c2f;
+  background-color: #3877d6;
   color: #fff;
   font-size: 14px;
   padding: 8px 40px;
@@ -78,16 +99,15 @@ a {
   cursor: pointer;
 }
 
-
-.container button.hidden {
-  background-color: transparent;
-  border-color: transparent ;
+.container button:hover{
+  background-color: #2d60ac;
 }
 
 
 
+
 .container form {
-  background-color: #ffffff; /* Branco*/
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,8 +118,11 @@ a {
 
 
 
+
+
+
 .container input {
-  background-color: #a88c2f;
+  background-color: #acacac;
   border: none;
   margin: 8px 0;
   padding: 10px 15px;
@@ -123,38 +146,6 @@ a {
 
 
 
-.sign-in {
-  left: 0;
-  width: 50%;
-  z-index: 2;
-}
-
-.sign-up {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
-
-
-
-
-.container.active .sign-in {
-  transform: translateX(100%);
-}
-
-
-
-
-.container.active .sign-up {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: move 0.6s;
-}
-
-
-
 .social-icons {
   margin: 20px 0;
 }
@@ -173,6 +164,7 @@ a {
 }
 
 
+
 .toggle-container {
   position: absolute;
   top: 0;
@@ -181,24 +173,16 @@ a {
   height: 100%;
   overflow: hidden;
   transition: all 0.6s ease-in-out;
-  border-radius: 150px 0 0 100px;
+  border-radius: 120px 0 0 120px;
   z-index: 1000;
 }
 
 
 
-.container.active .toggle-container {
-  transform: translateX(-100%);
-  border-radius: 0 150px 100px 0;
-}
-
-
-
-
 .toggle {
-  background-color: #a88c2f;
+  background-color: #303030;
   height: 100%;
-  background: #a88c2f;
+  background: #6d6d6d;
   color: #fff;
   position: relative;
   left: -100%;
@@ -209,11 +193,6 @@ a {
 }
 
 
-
-
-.container.active .toggle {
-  transform: translateX(50%);
-}
 
 
 
@@ -235,6 +214,7 @@ a {
 
 
 
+
 .toggle-left {
   transform: translateX(-200%);
 }
@@ -252,86 +232,6 @@ a {
 .container.active .toggle-right {
   transform: translateX(200%);
 }
-
-
-
-
-
-
-
-/* BLÁ BLÁ BLÉ */
-
-
-.product {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.product img {
-  max-width: 100px;
-  margin-right: 20px;
-}
-
-.product-info {
-  flex-grow: 1;
-}
-
-.product-info h2 {
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.product-info p {
-  margin: 5px 0;
-  color: #666;
-}
-
-.product button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.product button:hover {
-  background-color: #0056b3;
-}
-
-
-
-
-.fa-shopping-cart{
-color: green;
-}
-
-.container-catalogo {
-  max-width: 960px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-
-h1.catalogo {
-  background-color: #ffc400;
-  margin: 20px auto;
-  color: rgb(0, 0, 0);
-  padding: 10px;
-  margin-bottom: 40px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-
-
-
 
 
 
