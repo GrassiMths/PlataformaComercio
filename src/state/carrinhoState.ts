@@ -18,8 +18,14 @@ const produtos = [
     nome: 'Cueca Los 3 Más Grandes',
     valor: 25.99,
     foto: '/produto3.png'
-  }
+  },
 ]
+
+    const formatter = new Intl.NumberFormat("pt-BR", {
+        style : "currency",
+        currency : "BRL",
+    });
+
 
 interface Produto{
     id: number

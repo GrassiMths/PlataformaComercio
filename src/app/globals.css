@@ -22,7 +22,7 @@ body {
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
-  background: #e4e2e2;
+  background-image: url('/background.png');
   background-size: cover;
 }
 

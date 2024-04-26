@@ -13,15 +13,18 @@ function Catalogo() {
         <div className="menu-compras">
             
             <div className="product">
-             <Produtos/>
+                <Produtos/>
             </div>
 
-            <div className="area-carrinho">
-                <div className="carrinho"><Carrinho/></div>
+            <div className="carrinho">
+                <Carrinho/>
             </div>
+
 
         </div>
     )
 }
+
+
  
 export default Catalogo;
