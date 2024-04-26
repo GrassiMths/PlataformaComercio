@@ -6,7 +6,6 @@ import RedesSociais from './components/RedesSociais';
 function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [mensagem, setMensagem] = useState('');
     const [contasCadastradas, setContasCadastradas] = useState([]);
 
     useEffect(() => {
@@ -59,7 +58,6 @@ function Login() {
                     ></input>
                     <a href="#">Esqueceu sua senha?</a>
                     <button type="submit" className="acao" id="entrarBtn">Entrar</button>
-                    {mensagem && <p>{mensagem}</p>}
                 </form>
             </div>
 
