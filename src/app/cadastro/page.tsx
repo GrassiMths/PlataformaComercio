@@ -8,7 +8,6 @@ function Cadastro() {
     const [senha, setSenha] = useState('');
     const [email, setEmail] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
-    const [mensagem, setMensagem] = useState('');
     const [contaCadastrada, setContaCadastrada] = useState(null); // Adicione o estado para a conta cadastrada
 
     function registrarCliente(event: { preventDefault: () => void; }) {
@@ -53,7 +52,6 @@ function Cadastro() {
                     <input type="email" id="signup-email" placeholder="Email" value={email} onChange={(ev) => setEmail(ev.target.value)}></input>
                     <input type="password" id="signup-password" placeholder="Senha" value={senha} onChange={(ev) => setSenha(ev.target.value)}></input>
                     <button type="submit" className="acao">Inscrever</button>
-                    {mensagem && <p>{mensagem}</p>}
                 </form>
             </div>
 
