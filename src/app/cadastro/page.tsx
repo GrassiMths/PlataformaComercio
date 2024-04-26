@@ -11,28 +11,28 @@ function Cadastro() {
     const [mensagem, setMensagem] = useState('');
     const [contaCadastrada, setContaCadastrada] = useState(null); // Adicione o estado para a conta cadastrada
 
-   
-
     function registrarCliente(event: { preventDefault: () => void; }) {
         event.preventDefault();
 
-        // Salvar as credenciais no localStorage
-        localStorage.setItem('contaCadastrada', JSON.stringify({
+        // Verifica se já existe uma conta com as mesmas credenciais
+        const contasCadastradas = JSON.parse(localStorage.getItem('contasCadastradas') || '[]');
+        const contaExistente = contasCadastradas.find((conta: any) => conta.email === email && conta.senha === senha);
+
+        if (contaExistente) {
+            alert('Já existe uma conta com essas credenciais.');
+            return;
+        }
+
+        // Salva as credenciais no localStorage
+        const novaConta = {
             nome: nome,
             senha: senha,
             email: email,
             dataNascimento: dataNascimento
-        }));
+        };
+        localStorage.setItem('contasCadastradas', JSON.stringify([...contasCadastradas, novaConta]));
 
-        // Atualizar o estado da conta cadastrada
-        setContaCadastrada({
-            nome: nome,
-            senha: senha,
-            email: email,
-            dataNascimento: dataNascimento
-        });
-
-        // Limpar campos de entrada
+        // Limpa as credenciais depois que a criação da conta é bem sucedida
         setNome('');
         setSenha('');
         setEmail('');
@@ -71,4 +71,5 @@ function Cadastro() {
 }
 
 export default Cadastro;
+
 

@@ -7,29 +7,29 @@ function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [mensagem, setMensagem] = useState('');
-    const [contaCadastrada, setContaCadastrada] = useState(null);
+    const [contasCadastradas, setContasCadastradas] = useState([]);
 
-    // Carregar a conta cadastrada ao iniciar a tela de login
     useEffect(() => {
-        // Obter as informações da conta cadastrada do localStorage
-        const contaSalva = JSON.parse(localStorage.getItem('contaCadastrada'));
-        setContaCadastrada(contaSalva);
+        // pega as informações das contas cadastradas
+        const contasSalvas = JSON.parse(localStorage.getItem('contasCadastradas') || '[]');
+        setContasCadastradas(contasSalvas);
     }, []);
 
     // Função para realizar o login
     function handleLogin(event: { preventDefault: () => void; }) {
         event.preventDefault();
 
-        // Verificar se há uma conta cadastrada
-        if (!contaCadastrada) {
+        // Verificar se a conta existe
+        if (contasCadastradas.length === 0) {
             alert('Não há contas cadastradas. Por favor, registre-se.');
             return;
         }
 
-        // Verificar se o email e a senha correspondem ao usuário cadastrado
-        if (email === contaCadastrada.email && senha === contaCadastrada.senha) {
+        // Verificar se o email e a senha estão certos
+        const contaEncontrada = contasCadastradas.find((conta) => conta.email === email && conta.senha === senha);
+
+        if (contaEncontrada) {
             alert('Login bem-sucedido!');
-            // Redirecionar para a página de catálogo
             window.location.href = '/catalogo';
         } else {
             alert('Credenciais inválidas. Por favor, tente novamente.');
@@ -77,6 +77,7 @@ function Login() {
 }
 
 export default Login;
+
 
 
 
